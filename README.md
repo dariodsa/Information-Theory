@@ -1,2 +1,3 @@
-# Information-Theory
-Information Theory, course at FER
+# Information Theory
+Information theory, course at FER  
+
