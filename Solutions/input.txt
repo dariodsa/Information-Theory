@@ -1,0 +1,251 @@
+Search:Reference
+    <cstdio>
+    fwrite
+
+Not logged in
+register
+log in
+function
+<cstdio>
+fwrite
+
+size_t fwrite ( const void * ptr, size_t size, size_t count, FILE * stream );
+
+Write block of data to stream
+Writes an array of count elements, each one with a size of size bytes, from the block of memory pointed by ptr to the current position in the stream.
+
+The position indicator of the stream is advanced by the total number of bytes written.
+
+Internally, the function interprets the block pointed by ptr as if it was an array of (size*count) elements of type unsigned char, and writes them sequentially to stream as if fputc was called for each byte.
+
+Parameters
+
+ptr
+    Pointer to the array of elements to be written, converted to a const void*.
+size
+    Size in bytes of each element to be written.
+    size_t is an unsigned integral type.
+count
+    Number of elements, each one with a size of size bytes.
+    size_t is an unsigned integral type.
+stream
+    Pointer to a FILE object that specifies an output stream.
+
+
+Return Value
+The total number of elements successfully written is returned.
+If this number differs from the count parameter, a writing error prevented the function from completing. In this case, the error indicator (ferror) will be set for the stream.
+If either size or count is zero, the function returns zero and the error indicator remains unchanged.
+size_t is an unsigned integral type.
+
+Example
+
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+
+	
+
+/* fwrite example : write buffer */
+#include <stdio.h>
+
+int main ()
+{
+  FILE * pFile;
+  char buffer[] = { 'x' , 'y' , 'z' };
+  pFile = fopen ("myfile.bin", "wb");
+  fwrite (buffer , sizeof(char), sizeof(buffer), pFile);
+  fclose (pFile);
+  return 0;
+}
+
+	
+Edit & Run
+
+
+A file called myfile.bin is created and the content of the buffer is stored into it. For simplicity, the buffer contains char elements but it can contain any other type.
+sizeof(buffer) is the length of the array in bytes (in this case it is three, because the array has three elements of one byte each).
+
+See also
+
+fread
+    Read block of data from stream (function )
+
+fprintf
+    Write formatted data to stream (function )
+
+putc
+    Write character to stream (function )
+
+fputc
+    Write character to stream (function )
+
+C++
+
+    Information
+    Tutorials
+    Reference
+    Articles
+    Forum
+
+Reference
+
+    C library:
+        <cassert> (assert.h)
+        <cctype> (ctype.h)
+        <cerrno> (errno.h)
+        <cfenv> (fenv.h)
+        <cfloat> (float.h)
+        <cinttypes> (inttypes.h)
+        <ciso646> (iso646.h)
+        <climits> (limits.h)
+        <clocale> (locale.h)
+        <cmath> (math.h)
+        <csetjmp> (setjmp.h)
+        <csignal> (signal.h)
+        <cstdarg> (stdarg.h)
+        <cstdbool> (stdbool.h)
+        <cstddef> (stddef.h)
+        <cstdint> (stdint.h)
+        <cstdio> (stdio.h)
+        <cstdlib> (stdlib.h)
+        <cstring> (string.h)
+        <ctgmath> (tgmath.h)
+        <ctime> (time.h)
+        <cuchar> (uchar.h)
+        <cwchar> (wchar.h)
+        <cwctype> (wctype.h)
+    Containers:
+        <array>
+        <deque>
+        <forward_list>
+        <list>
+        <map>
+        <queue>
+        <set>
+        <stack>
+        <unordered_map>
+        <unordered_set>
+        <vector>
+    Input/Output:
+        <fstream>
+        <iomanip>
+        <ios>
+        <iosfwd>
+        <iostream>
+        <istream>
+        <ostream>
+        <sstream>
+        <streambuf>
+    Multi-threading:
+        <atomic>
+        <condition_variable>
+        <future>
+        <mutex>
+        <thread>
+    Other:
+        <algorithm>
+        <bitset>
+        <chrono>
+        <codecvt>
+        <complex>
+        <exception>
+        <functional>
+        <initializer_list>
+        <iterator>
+        <limits>
+        <locale>
+        <memory>
+        <new>
+        <numeric>
+        <random>
+        <ratio>
+        <regex>
+        <stdexcept>
+        <string>
+        <system_error>
+        <tuple>
+        <typeindex>
+        <typeinfo>
+        <type_traits>
+        <utility>
+        <valarray>
+
+<cstdio> (stdio.h)
+
+    functions:
+        clearerr
+        fclose
+        feof
+        ferror
+        fflush
+        fgetc
+        fgetpos
+        fgets
+        fopen
+        fprintf
+        fputc
+        fputs
+        fread
+        freopen
+        fscanf
+        fseek
+        fsetpos
+        ftell
+        fwrite
+        getc
+        getchar
+        gets
+        perror
+        printf
+        putc
+        putchar
+        puts
+        remove
+        rename
+        rewind
+        scanf
+        setbuf
+        setvbuf
+        snprintf
+        sprintf
+        sscanf
+        tmpfile
+        tmpnam
+        ungetc
+        vfprintf
+        vfscanf
+        vprintf
+        vscanf
+        vsnprintf
+        vsprintf
+        vsscanf
+    objects:
+        stderr
+        stdin
+        stdout
+    types:
+        FILE
+        fpos_t
+        size_t
+    macro constants:
+        BUFSIZ
+        EOF
+        FILENAME_MAX
+        FOPEN_MAX
+        L_tmpnam
+        NULL
+        TMP_MAX
+
+Home page | Privacy policy
+© cplusplus.com, 2000-2017 - All rights reserved - v3.1
+Spotted an error? contact us

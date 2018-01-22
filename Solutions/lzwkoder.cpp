@@ -116,6 +116,7 @@ void solve(FILE *inputFile, FILE *outputFile)
 		else 
 		{
 			//ispis koda
+			printf("%d\n",word.length());
 			if(word.length()>0)
 			{
 				if(!T.find(word))T.add(word);

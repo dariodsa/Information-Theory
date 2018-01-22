@@ -6,8 +6,8 @@ char outputPath[500];
 double eta;
 void sol(FILE *inputFile,FILE *outputFile,double eta)
 {
-	char broj;
-	while(fread(&broj,sizeof(char),1,inputFile)==1)
+	unsigned char broj;
+	while(fread(&broj,sizeof(unsigned  char),1,inputFile)==1)
   	{
 		int i;
 		for(i=0;i<8;++i)
@@ -23,7 +23,7 @@ void sol(FILE *inputFile,FILE *outputFile,double eta)
 			}
 		}
 		
-		fwrite(&broj,sizeof(char),1,outputFile);
+		fwrite(&broj,sizeof(unsigned char),1,outputFile);
 	}
 }
 double toDouble(char *q)

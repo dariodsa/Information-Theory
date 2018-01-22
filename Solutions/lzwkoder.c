@@ -9,8 +9,8 @@ typedef struct Cvor
 	int pos;
 } Cvor;
 int numCvor=1;
-Cvor* V[9500];
-int sizeOfArray[9500];
+Cvor* V[950000];
+int sizeOfArray[950000];
 int find(char *S)
 {
 	int len=strlen(S);
